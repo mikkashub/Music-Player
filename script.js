@@ -41,6 +41,21 @@ playBtn.addEventListener('click', () => {
 
 // Add next and previous Song logic
 
+function prevSong(){
+    songIndex = (songIndex - 1 + songs.length) % songs.length;
+    loadSong(songs[songIndex]);
+    playSong();
+}
+
+function nextSong(){
+    songIndex = (songIndex + 1) % songs.length;
+    loadSong(songs[songIndex]);
+    playSong();
+}
+
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
+
 // Update the progress bar
 
 // click to seek in track
