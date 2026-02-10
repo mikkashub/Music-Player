@@ -66,5 +66,13 @@ function updateProgress(e){
 audio.addEventListener('timeupdate', updateProgress);
 
 // click to seek in track
+function setProgress(e){
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    audio.currentTime = (clickX / width) * audio.duration;
+}
+
+progressContainer.addEventListener('click', setProgress);
 
 // auto play next song on end
+audio.addEventListener('ended', nextSong);
