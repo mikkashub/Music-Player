@@ -57,6 +57,13 @@ prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
 
 // Update the progress bar
+function updateProgress(e){
+    const { duration, currentTime } = e.srcElement;
+    const percent = (currentTime / duration ) * 100;
+    progress.style.width='${percent}%';
+}
+
+audio.addEventListener('timeupdate', updateProgress);
 
 // click to seek in track
 
