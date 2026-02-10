@@ -1,0 +1,48 @@
+// Load a Song Dynamically
+const musicContainer =document.getElementById('music-container');
+const playBtn = document.getElementById('play');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+
+const audio = document.getElementById('audio');
+const progress = document.getElementById('progress');
+const progressContainer = document.getElementById('progress-container');
+const title = document.getElementById('title');
+const cover = document.getElementById('cover');
+
+const songs = ['onedanceinstrumental', 'SZA - Good Days (Instrumental)'];
+let songIndex =2;
+
+function loadSong(song){
+    title.innerText = song;
+    audio.src='music/${song}.mpg3';
+    cover.src='music/${song}.jpeg';
+}
+
+loadSong(songs[songIndex]);
+
+// Add play and pause controls
+function playSong(){
+    musicContainer.classList.add('play');
+    playBtn.querySelector('i.fas').classList.replace('fa-play','fa-pause');
+    audio.play();
+}
+
+function pauseSong(){
+    musicContainer.classList.remove('play');
+    playBtn.querySelector('i.fas').classList.replace('fa-pause', 'fa-play');
+    audio.pause();
+}
+
+playBtn.addEventListener('click', () => {
+    const isPlaying = musicContainer.classList.contains('play');
+    isPlaying ? pauseSong() : playSong();
+});
+
+// Add next and previous Song logic
+
+// Update the progress bar
+
+// click to seek in track
+
+// auto play next song on end
