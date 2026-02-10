@@ -10,13 +10,13 @@ const progressContainer = document.getElementById('progress-container');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 
-const songs = ['onedanceinstrumental', 'SZA - Good Days (Instrumental)'];
-let songIndex =2;
+const songs = ['Drake - One Dance (Instrumental)', 'SZA - Good Days (Instrumental)'];
+let songIndex = 0;
 
 function loadSong(song){
     title.innerText = song;
-    audio.src='music/${song}.mpg3';
-    cover.src='music/${song}.jpeg';
+    audio.src=`music/${song}.mp3`;
+    cover.src = `images/${song}.jpeg`;
 }
 
 loadSong(songs[songIndex]);
@@ -60,7 +60,7 @@ nextBtn.addEventListener('click', nextSong);
 function updateProgress(e){
     const { duration, currentTime } = e.srcElement;
     const percent = (currentTime / duration ) * 100;
-    progress.style.width='${percent}%';
+    progress.style.width=`${percent}%`;
 }
 
 audio.addEventListener('timeupdate', updateProgress);
